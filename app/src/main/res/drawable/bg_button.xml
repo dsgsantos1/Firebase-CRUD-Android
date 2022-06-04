@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
 
-    <!--    Cor sólida no background do item-->
-    <solid android:color="#E8FED6"/>
-    <!--    Arredondamento-->
+    <gradient
+        android:startColor="#4EFE33"
+        android:centerColor="#41E29D"/>
+
     <corners android:radius="5dp"/>
 </shape>

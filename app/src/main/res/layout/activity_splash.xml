@@ -28,7 +28,7 @@
         android:layout_marginBottom="32dp"
         android:fontFamily="sans-serif"
         android:text="Cadastro de Times"
-        android:textColor="#050505"
+        android:textColor="#E2181D18"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
