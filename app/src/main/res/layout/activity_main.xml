@@ -6,13 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Conta Criada"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#38C946">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Times Cadastrados"
+            android:textStyle="bold"
+            android:textSize="14dp"
+            android:textColor="@color/white" />
+
+<!--        <ImageButton-->
+<!--            android:id="@+id/bntLogOff"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end"-->
+<!--            app:srcCompat="@drawable/ic_log_off"-->
+<!--            android:background="@null"-->
+<!--            tools:layout_editor_absoluteX="364dp"-->
+<!--            tools:layout_editor_absoluteY="6dp">-->
+
+
+<!--        </ImageButton>-->
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
