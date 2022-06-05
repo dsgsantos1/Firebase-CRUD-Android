@@ -26,5 +26,25 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(this, RecuperaActivity.class));
         });
 
+        binding.btnLogin.setOnClickListener(v-> validaDados());
+
     }
+
+    private void validaDados(){
+        String email = binding.editEmail.getText().toString().trim();
+        String senha = binding.editPassword.getText().toString().trim();
+
+        binding.progressBar.setVisibility();
+
+        if(!email.isEmpty()){
+            if (!senha.isEmpty()){
+
+            }
+            else{
+
+            }
+        }
+
+    }
+
 }

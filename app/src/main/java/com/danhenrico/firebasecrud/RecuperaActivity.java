@@ -2,6 +2,7 @@ package com.danhenrico.firebasecrud;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,7 +26,9 @@ public class RecuperaActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         
         mAuth = FirebaseAuth.getInstance();
-        
+
+        iniciaToolBar();
+
         binding.btnResetAccount.setOnClickListener(view -> validaDados());
         
     }
@@ -62,6 +65,12 @@ public class RecuperaActivity extends AppCompatActivity {
 
     }
 
-    DialogInterface.OnClickListener listener = (dialogInterface, i) ->
-            startActivity(new Intent(this, LoginActivity.class));
+    DialogInterface.OnClickListener listener = (dialogInterface, i) -> startActivity(new Intent(this, LoginActivity.class));
+
+    private void iniciaToolBar(){
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+    }
+
 }

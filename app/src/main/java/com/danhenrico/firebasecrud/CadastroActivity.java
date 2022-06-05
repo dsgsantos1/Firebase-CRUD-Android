@@ -2,6 +2,7 @@ package com.danhenrico.firebasecrud;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         mAuth = FirebaseAuth.getInstance();
+
+        iniciaToolBar();
 
         binding.btnNewAccount.setOnClickListener(v-> validaDados());
 
@@ -71,6 +74,12 @@ public class CadastroActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void iniciaToolBar(){
+        Toolbar toolbar = binding.toolbar;
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
     }
 
 }
