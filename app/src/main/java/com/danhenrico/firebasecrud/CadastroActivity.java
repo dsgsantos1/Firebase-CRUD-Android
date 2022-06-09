@@ -27,7 +27,7 @@ public class CadastroActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        iniciaToolBar();
+        iniciaToolbar();
 
         binding.btnNewAccount.setOnClickListener(v-> validaDados());
 
@@ -82,7 +82,7 @@ public class CadastroActivity extends AppCompatActivity {
 
     }
 
-    private void iniciaToolBar(){
+    private void iniciaToolbar(){
         Toolbar toolbar = binding.toolbar;
         toolbar.setTitle("");
         setSupportActionBar(toolbar);

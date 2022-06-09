@@ -3,7 +3,9 @@ package com.danhenrico.firebasecrud;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -44,20 +46,23 @@ public class MainActivity extends AppCompatActivity {
 
         binding.addTeamButton.setOnClickListener(v -> addTeam());
 
-        binding.teamListView.setOnItemLongClickListener((adapterView, view, i, l) -> {
-            Team removedTeam = teamList.get(i);
-
+        binding.teamListView.setOnItemClickListener((adapterView, view, i, l) -> {
+            Team team = teamList.get(i);
             teamList.clear();
-            
-            databaseReference.child("Team").child(removedTeam.getName()).removeValue();
 
-            return false;
+            Intent intent = new Intent(MainActivity.this, UpdateTeamActivity.class);
+            intent.putExtra("teamName", team.getName());
+            startActivity(intent);
+            //databaseReference.child("Team").child(removedTeam.getName()).removeValue();
         });
     }
 
     private void initializeFirebase() {
-        firebaseDatabase = FirebaseDatabase.getInstance();
-        firebaseDatabase.setPersistenceEnabled(true);
+        if (firebaseDatabase == null) {
+            firebaseDatabase = FirebaseDatabase.getInstance();
+            firebaseDatabase.setPersistenceEnabled(true);
+        }
+
         databaseReference = firebaseDatabase.getReference();
     }
 
@@ -86,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     private void addTeam() {
