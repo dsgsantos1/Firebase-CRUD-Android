@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(this, RecuperaActivity.class));
         });
 
-        binding.btnLogin.setOnClickListener(v-> validaDados());
+        binding.btnLogin.setOnClickListener(v -> validaDados());
 
     }
 
@@ -45,6 +46,11 @@ public class LoginActivity extends AppCompatActivity {
         binding.progressBar.setVisibility(View.VISIBLE);
 
         if(!email.isEmpty()){
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                binding.editEmail.setError("Preencha Corretamente");
+                binding.editEmail.requestFocus();
+            }
+
             if (!senha.isEmpty()){
                 binding.progressBar.setVisibility(View.GONE);
                 login(email, senha);

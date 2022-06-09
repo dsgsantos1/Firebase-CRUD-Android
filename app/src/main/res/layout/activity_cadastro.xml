@@ -47,16 +47,13 @@
                 android:id="@+id/editName"
                 android:layout_width="347dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="32dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
                 android:background="@drawable/bg_edit_text"
                 android:ems="10"
                 android:hint="Nome"
                 android:inputType="text"
                 android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

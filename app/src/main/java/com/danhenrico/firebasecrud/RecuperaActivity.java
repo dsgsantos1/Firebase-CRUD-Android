@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 
 import com.danhenrico.firebasecrud.databinding.ActivityRecuperaBinding;

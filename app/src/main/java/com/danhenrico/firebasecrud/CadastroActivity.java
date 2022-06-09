@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -39,6 +40,11 @@ public class CadastroActivity extends AppCompatActivity {
 
         if(!nome.isEmpty()){
             if (!email.isEmpty()){
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    binding.editEmail.setError("Preencha Corretamente");
+                    binding.editEmail.requestFocus();
+                }
+
                 if (!senha.isEmpty()){
                     binding.progressBar.setVisibility(View.VISIBLE);
                     criarConta(email, senha);

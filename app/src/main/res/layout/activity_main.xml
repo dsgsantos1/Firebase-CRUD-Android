@@ -10,10 +10,10 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#38C946"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#38C946">
+        app:layout_constraintTop_toTopOf="parent">
 
 
         <TextView
@@ -21,26 +21,61 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Times Cadastrados"
-            android:textStyle="bold"
+            android:textColor="@color/white"
             android:textSize="14dp"
-            android:textColor="@color/white" />
+            android:textStyle="bold" />
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/bntLogOff"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="end"-->
-<!--            app:srcCompat="@drawable/ic_log_off"-->
-<!--            android:background="@null"-->
-<!--            tools:layout_editor_absoluteX="364dp"-->
-<!--            tools:layout_editor_absoluteY="6dp">-->
-
-
-<!--        </ImageButton>-->
+        <!--        <ImageButton-->
+        <!--            android:id="@+id/bntLogOff"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="end"-->
+        <!--            app:srcCompat="@drawable/ic_log_off"-->
+        <!--            android:background="@null"-->
+        <!--            tools:layout_editor_absoluteX="364dp"-->
+        <!--            tools:layout_editor_absoluteY="6dp">-->
 
 
-
+        <!--        </ImageButton>-->
     </androidx.appcompat.widget.Toolbar>
 
+    <EditText
+        android:id="@+id/editTextAddTeam"
+        android:layout_width="315dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_edit_text"
+        android:ems="10"
+        android:hint="Nome do Time"
+        android:inputType="text"
+        android:padding="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/addTeamButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <ImageButton
+        android:id="@+id/addTeamButton"
+        android:layout_width="60dp"
+        android:layout_height="64dp"
+        android:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextAddTeam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/editTextAddTeam"
+        app:layout_constraintTop_toTopOf="@+id/editTextAddTeam"
+        app:srcCompat="@drawable/ic_baseline_add_circle_36" />
+
+    <ListView
+        android:id="@+id/teamListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddTeam" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

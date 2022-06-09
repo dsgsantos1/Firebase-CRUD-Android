@@ -1,4 +1,4 @@
-package com.danhenrico.firebasecrud;
+package com.danhenrico.firebasecrud.model;
 
 public class Usuario {
     private String name, email, senha;
