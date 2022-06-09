@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
-import com.danhenrico.firebasecrud.databinding.ActivityLoginBinding;
 import com.danhenrico.firebasecrud.databinding.ActivityMainBinding;
 import com.danhenrico.firebasecrud.model.Team;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,6 +19,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,24 +50,22 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(MainActivity.this, UpdateTeamActivity.class);
             intent.putExtra("teamName", team.getName());
+            intent.putExtra("teamId", team.getId());
             startActivity(intent);
-            //databaseReference.child("Team").child(removedTeam.getName()).removeValue();
         });
     }
 
     private void initializeFirebase() {
         if (firebaseDatabase == null) {
             firebaseDatabase = FirebaseDatabase.getInstance();
-            firebaseDatabase.setPersistenceEnabled(true);
+            databaseReference = firebaseDatabase.getReference();
         }
-
-        databaseReference = firebaseDatabase.getReference();
     }
 
     private void showTeams() {
         Query query;
 
-        query = databaseReference.child("Team").orderByChild("name");
+        query = databaseReference.child("Team");
 
         teamList.clear();
 
@@ -96,12 +92,14 @@ public class MainActivity extends AppCompatActivity {
     private void addTeam() {
         String teamName = binding.editTextAddTeam.getText().toString();
 
-        if (!teamName.isEmpty()) {
-            Team team = new Team(teamName);
+        if (!teamName.trim().isEmpty()) {
+            String id = UUID.randomUUID().toString();
 
-            databaseReference.child("Team").
-                    child(team.getName()).
-                    setValue(team);
+            Team team = new Team(teamName, id);
+
+            databaseReference.child("Team")
+                    .child(team.getId())
+                    .setValue(team);
 
             binding.editTextAddTeam.setText("");
             teamList.clear();

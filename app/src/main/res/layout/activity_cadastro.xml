@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:text="Cadastro de Usuário"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
 

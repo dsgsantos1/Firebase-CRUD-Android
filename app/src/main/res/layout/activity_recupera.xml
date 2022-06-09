@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:text="Recuperação de Senha"
             android:textStyle="bold"
-            android:textSize="14dp"
+            android:textSize="18sp"
             android:textColor="@color/white" />
 
 

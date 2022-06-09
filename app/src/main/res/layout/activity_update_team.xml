@@ -23,7 +23,7 @@
             android:layout_gravity="center"
             android:text="Editar Time"
             android:textColor="@color/white"
-            android:textSize="14dp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
 
@@ -60,11 +60,11 @@
         app:layout_constraintTop_toBottomOf="@+id/editNewTeamName" />
 
     <Button
-        android:id="@+id/btnApagar"
+        android:id="@+id/btnDelete"
         android:layout_width="347dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_button"
+        android:background="@drawable/bg_button_delete"
         android:text="Apagar"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

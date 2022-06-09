@@ -32,12 +32,12 @@ public class UpdateTeamActivity extends AppCompatActivity {
         initializeToolbar();
 
         Intent thisIntent = getIntent();
-        team = new Team(thisIntent.getStringExtra("teamName"));
+        team = new Team(thisIntent.getStringExtra("teamName"), thisIntent.getStringExtra("teamId"));
 
         binding.editNewTeamName.setText(team.getName());
 
         binding.btnUpdate.setOnClickListener(view -> updateTeam());
-        binding.btnApagar.setOnClickListener(view -> deleteTeam());
+        binding.btnDelete.setOnClickListener(view -> deleteTeam());
     }
 
     private void initializeFirebase() {
@@ -48,10 +48,11 @@ public class UpdateTeamActivity extends AppCompatActivity {
     private void updateTeam() {
         String newTeamName = binding.editNewTeamName.getText().toString();
 
-        if (!newTeamName.equals(team.getName()) && !newTeamName.isEmpty()) {
-            Team newTeam = new Team(newTeamName);
+        if (!newTeamName.equals(team.getName()) && !newTeamName.trim().isEmpty()) {
+            Team newTeam = new Team(newTeamName, team.getId());
+
             databaseReference.child("Team")
-                    .child(team.getName())
+                    .child(team.getId())
                     .setValue(newTeam)
                     .addOnCompleteListener(task -> {
                         if(task.isSuccessful()){
@@ -63,7 +64,7 @@ public class UpdateTeamActivity extends AppCompatActivity {
     }
 
     private void deleteTeam() {
-        databaseReference.child("Team").child(team.getName()).removeValue()
+        databaseReference.child("Team").child(team.getId()).removeValue()
             .addOnCompleteListener(task -> {
                 if(task.isSuccessful()){
                     finish();
@@ -77,4 +78,5 @@ public class UpdateTeamActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
     }
+
 }
